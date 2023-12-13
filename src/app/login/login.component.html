@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card w-50">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+            <form [formGroup]="Loginform">
+                <div class=" row m-3">
+                    <div class="col-sm-6">
+             <label>Phone number :  </label></div>
+             <div class="col-sm-6">
+          <input type="text" placeholder="Enter phone number" formControlName="mobileno"  ></div></div>
+          <div class=" row m-3">
+            <div class="col-sm-6">
+          <label>password :  </label></div>
+          <div class="col-sm-6">
+          <input type="password" placeholder="Enter password" formControlName="password" ></div></div>
+        
+          <button type="submit" (click)="getUsers()">Login</button>
+          <button type="submit" routerLink="/registration">Register</button>
+          
+            <button type="submit"  >userlogin</button>
+          
+          
+          </form>
+          </div>
+          </div>
+          </div>

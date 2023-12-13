@@ -1,0 +1,121 @@
+<div class="container">
+<div class ="row">
+    <table class="table table-success table-striped table-bordered">
+        <thead>
+        <tr >
+            <th>Id</th>
+    <th>FullName</th>
+    <th>Username</th>
+    <th>Mobileno</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Qualification</th>
+    <th>Password</th>
+    <th>Address</th>
+    <th>Button</th>
+    <th>Button</th>
+    </tr></thead>
+    <tbody>
+    <tr *ngFor="let r of apidata">
+        <td>{{r._id}} </td>
+
+     <td>{{r.fullname}}</td>
+     <td>{{r.username}}</td>
+     <td>{{r.mobileno}}</td>
+     <td>{{r.email}}</td>
+     <td>{{r.gender}}</td>
+     <td>{{r.qualification}}</td>
+     <td>{{r.password}}</td>
+     <td>{{r.address}}</td>
+     <td>
+        <button type="button" class="btn btn-danger" (click)="deleteuser(r._id)">Delete</button>
+     </td>
+     <td>
+
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edituser(r)">
+    Edit
+  </button>
+  
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <div class="card w-100">
+                    <div class="card-header">Registration Form</div>
+                    <div class="card-body">
+                        <form [formGroup]="Editform">
+                            <div class=" row m-3">
+                                <div class="col-sm-6">
+                         <label>Name :  </label></div>
+                         <div class="col-sm-6">
+                      <input type="text" placeholder="Enter Your Name" formControlName="name" ></div></div>
+                      <div class="row m-3">
+                        <div class="col-sm-6">
+                      <label>Username</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" placeholder="Username" class="form-control"formControlName="username" >
+                        </div>
+                    </div>
+                      <div class="row m-3">
+                        <div class="col-sm-6">
+                      <label>Email :  </label></div>
+                      <div class="col-sm-6">
+                      <input type="email" placeholder="Enter Your email" formControlName="email" ></div></div>
+                      <div class=" row m-3">
+                        <div class="col-sm-6">
+                        <label>Phone number :  </label></div>
+                        <div class="col-sm-6">
+                        <input type="text" placeholder="Enter mobile number" formControlName="mobileno"></div></div>
+                        <div class=" row m-3">
+                            <div class="col-sm-6">
+                            <label>Password:  </label></div>
+                            <div class="col-sm-6">
+                            <input type="password" placeholder="Enter Your Password" formControlName="password"></div></div>
+                            <div class=" row m-3">
+                                <div class="col-sm-6">
+                                <p>Qualification :</p></div>
+                                <div class="col-sm-6">
+                                <input type="checkbox" name="qualification" id="qualification" value="Inter" formControlName="qualification">Inter
+                                <input type="checkbox" name="qualification" id="qualification" value="Degree" formControlName="qualification">Degree
+                                <input type="checkbox" name="qualification" id="qualification" value="MBA" formControlName="qualification">MBA
+                                </div></div>
+                               <div class=" row m-3">
+                                <div class="col-sm-6">
+                                <p>Gender :</p></div>
+                                <div class="col-sm-6">
+                                 <input type="radio"  id="gender" value="male" formControlName="gender">male
+                                <input type="radio"  id="gender" value="female" formControlName="gender">female
+                               </div></div>
+            
+                               <div class=" row ms-3">
+                                <div class="col-sm-6">
+                                    <label>Address</label></div>
+                                <div class="col-sm-6">
+                                <textarea formControlName="address"></textarea></div>
+                            </div>
+                            
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="update()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+     </td>
+    </tr></tbody>
+    </table>
+    <button type="button" class="btn btn-secondary" (click)="getid()">Get profile</button>
+</div>
+</div>

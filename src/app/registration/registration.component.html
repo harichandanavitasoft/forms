@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="card w-50">
+        <div class="card-header">Registration Form</div>
+        <div class="card-body">
+            <form [formGroup]="Registerform">
+                <div class=" row m-3">
+                    <div class="col-sm-6">
+             <label>Fullname :  </label></div>
+             <div class="col-sm-6">
+          <input [class.is-invalid]="name?.invalid && name?.touched" type="text" placeholder="Enter Your Name" class="form-control" formControlName="fullname" >
+          <div *ngIf="name?.invalid && name?.touched">
+            <small class="text-danger" *ngIf="name?.errors?.['required'] ">name required</small>
+            <small  class="text-danger" *ngIf="name?.errors?.['minlength']">name must be atleast 3 charecters</small>
+            <small class="text-danger" *ngIf="name?.errors?.['pattern']">name should start with Alphabet</small>
+
+          </div>
+        </div>
+    </div>
+    <div class="row m-3">
+        <div class="col-sm-6">
+      <label>Username</label>
+        </div>
+        <div class="col-sm-6">
+            <input [class.is-invalid]="username?.invalid && username?.touched" type="text" placeholder="Username" class="form-control"formControlName="username" >
+            <div *ngIf="username?.invalid && username?.touched">
+                <small class="text-danger" *ngIf="username?.errors?.['required']">Username required</small>
+                <small class="text-danger" *ngIf="username?.errors?.['pattern']">Invalid Username</small>
+            </div>
+        </div>
+    </div>
+          <div class="row m-3">
+            <div class="col-sm-6">
+          <label>Email :  </label></div>
+          <div class="col-sm-6">
+          <input type="email"[class.is-invalid]="email?.invalid && email?.touched" placeholder="Enter Your email" class="form-control"  formControlName="email" >
+           <div *ngIf="email?.invalid && email?.touched">
+            <small class="text-danger" *ngIf="email?.errors?.['required']">email is required</small>
+            <small class="text-danger" *ngIf="email?.errors?.['pattern']">Enter a valid email </small>
+        </div></div></div>
+          <div class=" row m-3">
+            <div class="col-sm-6">
+            <label>Phone number :  </label></div>
+            <div class="col-sm-6">
+            <input [class.is-invalid]="mobileno?.invalid && mobileno?.touched" class="form-control"  type="text" placeholder="Enter mobile number" formControlName="mobileno">
+            <div class="text-danger" *ngIf="mobileno?.invalid && mobileno?.touched">
+                <small class="text-danger" *ngIf="mobileno?.errors?.['required']">mobileno required</small>
+                <small class="text-danger" *ngIf="mobileno?.errors?.['pattern']">Please, Enter 10 digit Mobile Number.</small>
+
+
+            </div>
+        </div></div>
+            <div class=" row m-3">
+                <div class="col-sm-6">
+                <label>Password:  </label></div>
+                <div class="col-sm-6">
+                <input [class.is-invalid]="password?.invalid && password?.touched"type="password" placeholder="Enter Your Password"class="form-control" formControlName="password">
+                <div class="text-danger" *ngIf="password?.invalid && password?.touched">
+                    <small class="text-danger" *ngIf="password?.errors?.['required']">password is required</small>
+                </div>
+            </div></div>
+                <div class=" row m-3">
+                    <div class="col-sm-6">
+                    <p>Qualification :</p></div>
+                    <div class="col-sm-6">
+                    <input type="checkbox" name="qualification" id="qualification" value="Inter" formControlName="qualification">Inter
+                    <input type="checkbox" name="qualification" id="qualification" value="Degree" formControlName="qualification">Degree
+                    <input type="checkbox" name="qualification" id="qualification" value="MBA" formControlName="qualification">MBA
+                    </div></div>
+                   <div class=" row m-3">
+                    <div class="col-sm-6">
+                    <p>Gender :</p></div>
+                    <div class="col-sm-6">
+                     <input type="radio"  id="gender" value="male" formControlName="gender">male
+                    <input type="radio"  id="gender" value="female" formControlName="gender">female
+                   </div></div>
+
+                   <div class=" row ms-3">
+                    <div class="col-sm-6">
+                        <label>Address</label></div>
+                    <div class="col-sm-6">
+                    <textarea formControlName="address"></textarea></div>
+                </div>
+                <div class="row">
+                    <button type="submit" (click)="addUsers()">Submit</button>
+                    <button type="button" routerLink="/login">Login</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        </div>
+
+    
