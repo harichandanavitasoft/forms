@@ -18,7 +18,7 @@ export class RegisterService {
   postData(data : any){
     return this.http.post("http://localhost:3000/user/create",data);
   }
-  getData1(){
+  getusers(){
     return this.http.get("http://localhost:3000/get/users")
   }
   delete(id:any){

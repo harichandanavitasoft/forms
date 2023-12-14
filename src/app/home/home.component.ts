@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../register.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,15 +13,22 @@ export class HomeComponent  implements OnInit{
   Editform!:FormGroup
  apidata : any;
  value:any;
+ 
   updateData: any;
-  constructor(private api:RegisterService, private data:FormBuilder){}
+
+  constructor(private api:RegisterService, private data:FormBuilder,private route:Router){}
   ngOnInit(): void {
-    this.api.getData1().subscribe((res:any)=>{
+    let username = localStorage.getItem('id');
+    console.log(username,'uname');
+     this.api.getusers().subscribe((res:any)=>{
       console.log(res);
-      this.apidata=res ;
+      this.apidata=res.filter((u:any) => u._id != username)
+
     });
+
     this.Editform=this.data.group({
       name : ["ffff"],
+
       username:[''],
       mobileno : [''],
       email:[""],
@@ -71,9 +79,11 @@ export class HomeComponent  implements OnInit{
       let id = localStorage.getItem("id")
       this.api.getuserid(id).subscribe((res:any)=>{
         console.log(res,'checking');
+        this.route.navigate(['/users'])
         
       })
     }
+
   }
 
 
