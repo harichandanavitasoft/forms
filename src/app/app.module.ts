@@ -9,6 +9,8 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import{ HttpClientModule}from'@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
+import { IndexComponent } from './index/index.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { UsersComponent } from './users/users.component';
     RegistrationComponent,
     LoginComponent,
     HomeComponent,
-    UsersComponent
+    UsersComponent,
+    IndexComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
